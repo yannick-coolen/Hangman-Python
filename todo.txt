@@ -1,0 +1,12 @@
+Galgje:
+
+1. Verzin een woord dat de speler moet raden
+2. Bepaal de aantal keren dat de speler fout mag raden (max 9)
+3. Geef de speler de mogelijkheid om een letter in te voeren
+    a. Bij het juiste geraden letter, wordt deze in de reeks zichtbaar gesteld.
+    b. Bij het verkeerd raden van het woord, verliest de speler een punt voor het aantal keren dat hij mag raden (Ook het foute letter wordt toonbaar gesteld).
+4. 
+    a. Heeft de speler alle letters goed geraden binnen de aantal foutpunten, dan wint de speler en krijgt hij het woord te zien
+    b. Heeft de speler niet alle woorden binnen de aantal foutpunten, dan verleist de speler. (Hij krijgt nog wel het woord te zien)
+
+! De speler mag alleen een letter invoeren. cijfers zijn niet toegestaan.
