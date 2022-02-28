@@ -38,7 +38,6 @@ while not done:
         # Append the valid value to the series (array) of guesses
         guesses.append(guess.lower())
         
-
     else:
         # Sends back a message that the input is invalid.
         print(f'{guess} is invalid! Only alpha letters (a-z) are allowed. Try again!')
