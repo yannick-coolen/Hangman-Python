@@ -35,8 +35,8 @@ while not done:
     if guess.isalpha():
         # Append valid value to array of guesses
         guesses.append(guess.lower())
-        if guess not in secretWord.lower():
-            print('The guessed value is not part of the word!')
+        if guess not in secretWord.lower() and len(guess) == 1 :
+            print(f'The guessed {guess} value is not part of the word!')
 
     else:
         # Sends back a message that the input is invalid.
