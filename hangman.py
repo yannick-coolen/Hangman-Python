@@ -33,10 +33,11 @@ while not done:
     # if true the value is valid
     # else the letter will NOT be filled in and the player has to try again in the same turn
     if guess.isalpha():
-        # Append valid value to array of guesses
-        guesses.append(guess.lower())
         if guess not in secretWord.lower() and len(guess) == 1 :
             print(f'The guessed {guess} value is not part of the word!')
+        # Append the valid value to the series (array) of guesses
+        guesses.append(guess.lower())
+        
 
     else:
         # Sends back a message that the input is invalid.
@@ -46,9 +47,11 @@ while not done:
     # Check if player has only given just one value
     # if false, send back a message that only one character is allowed and that 
     # the player has to try it again in the same turn
+    # the guessed element (letter) will NOT be append to the series of guesses
     if len(guess) > 1:
         print('Invalid! Only one character (a-z) is allowed each turn. Try again!')
         amountOfTurns += 1
+        guesses.remove(guess.lower())
 
     # If the guessed letter is not in the word, the turns will be decreased
     if guess.lower() not in secretWord.lower():
