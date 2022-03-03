@@ -26,7 +26,7 @@ while not done:
             print("_", end=" ")
     # Every pushed element (letter) in the array (guesses) automatically adds an comma at the end
     print(guesses, end=", ")
-
+    
     # Allow the user to fill in a value
     guess = input(f'Player has {amountOfTurns} turn(s) left, Next Guess: ')
 
@@ -39,13 +39,12 @@ while not done:
     
     # Check if entered letter is valid
     if letterIsValid:
-        # Check if letter is in secret word and len
+        # Check if letter is in secret word
         if guess not in secretWord.lower():
             print(f'The guessed {guess} value is not part of the word!')
         # Check if player has only given just one value
         # if false, send back a message that only one character is allowed and that 
-        # the player has to try it again in the same turn
-        # the guessed element (letter) will NOT be added to the series of guesses
+        # the player has to try it again without costing a point
         if len(letterIsValid) > 1:
             print(f'\'{guess}\' is invalid! Only alpha letters (a-z) are allowed. Try again!')
             amountOfTurns += 1
@@ -57,23 +56,10 @@ while not done:
     # Append the valid value to the series (array) of guesses  
     guesses.append(guess.lower())
         
+    # If use does not enter a value in the input, the counter of amountOfTurns will not go up.
     if guess == '':
         amountOfTurns -= 1
      
-    # # checks for an empty array
-    # elif guess == '':
-    #     print('Please fill in a letter!')
-        
-    # else:
-    #     # Sends back a message that the input is invalid.
-    #     print(f'{guess} is invalid! Only alpha letters (a-z) are allowed. Try again!')
-    #     amountOfTurns += 1
-
-
-
-
-    # 
-
     # If the guessed letter is not in the word, the turns will be decreased
     if guess.lower() not in secretWord.lower():
         amountOfTurns -= 1
