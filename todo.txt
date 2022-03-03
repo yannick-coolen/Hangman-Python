@@ -9,4 +9,4 @@ Galgje:
     a. Heeft de speler alle letters goed geraden binnen de aantal foutpunten, dan wint de speler en krijgt hij het woord te zien
     b. Heeft de speler niet alle woorden binnen de aantal foutpunten, dan verleist de speler. (Hij krijgt nog wel het woord te zien)
 
-! De speler mag alleen een letter invoeren. cijfers zijn niet toegestaan.
+! De speler mag alleen een letter invoeren. cijfers en speciale tekens (zoals !, ?, $) zijn niet toegestaan.

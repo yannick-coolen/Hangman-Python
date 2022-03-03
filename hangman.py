@@ -1,4 +1,5 @@
 import random
+import re
 
 # Open words.txt and read all its values
 # that can be used for the hangman game.
@@ -32,25 +33,46 @@ while not done:
     # Check if value is an alpha letter (a-z)
     # if true the value is valid
     # else the letter will NOT be filled in and the player has to try again in the same turn
-    if guess.isalpha():
-        if guess not in secretWord.lower() and len(guess) == 1 :
+    
+    # Set up the regexp to find all char pattern from a-zA-Z, which is entered by the use
+    letterIsValid = re.findall('[a-zA-Z]', guess)
+    
+    # Check if entered letter is valid
+    if letterIsValid:
+        # Check if letter is in secret word and len
+        if guess not in secretWord.lower():
             print(f'The guessed {guess} value is not part of the word!')
-        # Append the valid value to the series (array) of guesses
-        guesses.append(guess.lower())
-        
+        # Check if player has only given just one value
+        # if false, send back a message that only one character is allowed and that 
+        # the player has to try it again in the same turn
+        # the guessed element (letter) will NOT be added to the series of guesses
+        if len(letterIsValid) > 1:
+            print(f'\'{guess}\' is invalid! Only alpha letters (a-z) are allowed. Try again!')
+            amountOfTurns += 1
+        # check if input is empty
     else:
         # Sends back a message that the input is invalid.
-        print(f'{guess} is invalid! Only alpha letters (a-z) are allowed. Try again!')
+        print(f'\'{guess}\' is invalid! Only alpha letters (a-z) are allowed. Try again!')
         amountOfTurns += 1
+    # Append the valid value to the series (array) of guesses  
+    guesses.append(guess.lower())
+        
+    if guess == '':
+        amountOfTurns -= 1
+     
+    # # checks for an empty array
+    # elif guess == '':
+    #     print('Please fill in a letter!')
+        
+    # else:
+    #     # Sends back a message that the input is invalid.
+    #     print(f'{guess} is invalid! Only alpha letters (a-z) are allowed. Try again!')
+    #     amountOfTurns += 1
 
-    # Check if player has only given just one value
-    # if false, send back a message that only one character is allowed and that 
-    # the player has to try it again in the same turn
-    # the guessed element (letter) will NOT be append to the series of guesses
-    if len(guess) > 1:
-        print('Invalid! Only one character (a-z) is allowed each turn. Try again!')
-        amountOfTurns += 1
-        guesses.remove(guess.lower())
+
+
+
+    # 
 
     # If the guessed letter is not in the word, the turns will be decreased
     if guess.lower() not in secretWord.lower():
