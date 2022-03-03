@@ -29,10 +29,6 @@ while not done:
     
     # Allow the user to fill in a value
     guess = input(f'Player has {amountOfTurns} turn(s) left, Next Guess: ')
-
-    # Check if value is an alpha letter (a-z)
-    # if true the value is valid
-    # else the letter will NOT be filled in and the player has to try again in the same turn
     
     # Set up the regexp to find all char pattern from a-zA-Z, which is entered by the use
     letterIsValid = re.findall('[a-zA-Z]', guess)
