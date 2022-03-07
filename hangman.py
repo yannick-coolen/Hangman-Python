@@ -28,7 +28,7 @@ while not done:
     print(guesses, end=", ")
     
     # Allow the user to fill in a value
-    guess = input(f'Player has {amountOfTurns} turn(s) left, Next Guess: ')
+    guess = input(f'\nPlayer has {amountOfTurns} turn(s) left, Next Guess: ')
     
     # Set up the regexp to find all char pattern from a-zA-Z, which is entered by the use
     letterIsValid = re.findall('[a-zA-Z]', guess)
@@ -60,7 +60,7 @@ while not done:
     if guess.lower() not in secretWord.lower():
         amountOfTurns -= 1
         # If amountOfTurns reached 0, the game will stop
-        if amountOfTurns == 0:
+        if amountOfTurns < 1:
             break
 
     done = True
