@@ -1,5 +1,6 @@
 import random
 import re
+from arr_of_symbols import *
 
 # Open words.txt and read all its values
 # that can be used for the hangman game.
@@ -15,8 +16,14 @@ secretWord = random.choice(words)
 amountOfTurns = 9   # amounts of turns that the player have
 guesses = []        # array field for guessed characters that the user fill in the input
 done = False        # If false, the game will run, if true, the game will stop
+guessesLeft = amountOfTurns
 
 while not done:
+    # Show the name of the game
+    print('H A N G M A N')
+    # At every wrong guess a symbol (drawing line) in the terminal appears
+    # as how it goes in the original hangman game 
+    print(hangman_arr[guessesLeft - amountOfTurns])
     for letter in secretWord:
         if letter.lower() in guesses:
             # If the guessed letter is in word, push the letter this in the 'array'
@@ -37,7 +44,7 @@ while not done:
     if letterIsValid:
         # Check if letter is in secret word
         if guess not in secretWord.lower():
-            print(f'The guessed {guess} value is not part of the word!')
+            print(f'The guessed \'{guess}\' value is not part of the word!')
         # Check if player has only given just one value
         # if false, send back a message that only one character is allowed and that 
         # the player has to try it again without costing a point
@@ -73,5 +80,6 @@ while not done:
 if done:
     print(f'You Won! The word was {secretWord}')
 else:
-    # If the player dit NOT guessed all the letters AND the amountOfTurns reached 0, the player will lose.         
-    print(f'Game Over, you lose! The word was {secretWord}')
+    # If the player dit NOT guessed all the letters AND the amountOfTurns reached 0, the player will lose.
+    # The last hangman image will appear as well
+    print(f'\nGame over, you lost! The word was {secretWord}\n{hangman_arr[-1]}')
