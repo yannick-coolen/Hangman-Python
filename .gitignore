@@ -1,1 +1,3 @@
 legacy/
+.idea/
+__pycache__/
