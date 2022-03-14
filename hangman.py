@@ -78,8 +78,8 @@ while not done:
 
 # If the player guessed all the letters before the amountOfTurns reached 0, the player has won.         
 if done:
-    print(f'You Won! The word was {secretWord}')
+    print(f'You Won! The word was \'{secretWord}\'')
 else:
     # If the player dit NOT guessed all the letters AND the amountOfTurns reached 0, the player will lose.
     # The last hangman image will appear as well
-    print(f'\nGame over, you lost! The word was {secretWord}\n{hangman_arr[-1]}')
+    print(f'\nGame over, you lost! The word was \'{secretWord}\'\n{hangman_arr[-1]}')
