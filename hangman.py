@@ -49,7 +49,7 @@ while not done:
         # if false, send back a message that only one character is allowed and that 
         # the player has to try it again without costing a point
         if len(letterIsValid) > 1:
-            print(f'\'{guess}\' is invalid! Only alpha letters (a-z) are allowed. Try again!')
+            print(f'\'{guess}\' is invalid! Only one alpha letter (a-z) is allowed for each turn. Try again!')
             amountOfTurns += 1
         # check if input is empty
     else:
